@@ -63,7 +63,12 @@ handles = guidata(hObject);  % Get newest version of handles
 
 
 %% For Each File
+disp("Started timing run")
+n_audio_files = length(audioselections);
+disp(['Processing ',num2str(n_audio_files),' audio files.'])
+tic
 for j = 1:length(audioselections)
+    disp(['Processing audio file ',num2str(j),'/',num2str(n_audio_files)])
     CurrentAudioFile = audioselections(j);
     % For Each Network
     Calls = [];
@@ -116,5 +121,6 @@ for j = 1:length(audioselections)
     
     delete(h)
 end
+toc
 update_folders(hObject, eventdata, handles);
 guidata(hObject, handles);
