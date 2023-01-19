@@ -89,6 +89,8 @@ function  Calls=SqueakDetect(inputfile,networkfile,fname,Settings,currentFile,to
         %parpool('local',n_workers);
     end
     
+    % Now we should be done 'initializing'. Closing handle (h)
+    close(h)
     
     parfor i = 1:length(chunks)-1 
     %for i = 1:length(chunks)-1
