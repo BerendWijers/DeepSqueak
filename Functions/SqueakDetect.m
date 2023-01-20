@@ -170,9 +170,11 @@ function  Calls=SqueakDetect(inputfile,networkfile,fname,Settings,currentFile,to
         end
     end
     % Return is nothing was found
-    if isempty(AllScores); close(h); return; end
-    
-    h = waitbar(1,h,'Merging Boxes...');
+    %if isempty(AllScores); close(h); return; end
+    if isempty(AllScores); return; end
+
+    %h = waitbar(1,h,'Merging Boxes...');
+    disp('Merging Boxes...');
     Calls = merge_boxes(AllBoxes, AllScores, AllClass, audio_info, 1, score_cuttoff, 0);
     
     % Merge long 22s if detected with a long 22 network
